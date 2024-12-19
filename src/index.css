@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+:root {
+  --soft-red: hsl(10, 79%, 65%);
+  --cyan: hsl(186, 34%, 60%);
+  --dark-brown: hsl(25, 47%, 15%);
+  --medium-brown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --very-pale-orange: hsl(33, 100%, 98%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  list-style: none;
+  user-select: none;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--cream);
+  padding-top: 64px;
+
+  @media (min-width: 375px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+main {
+  width: 465px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+
+  @media (max-width: 465px) {
+    width: 100%;
+  }
+}
+
+section {
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.balance {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: var(--soft-red);
+}
+
+.balance > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.balance > div > span {
+  color: var(--cream);
+}
+
+.balance > img {
+  width: 65px;
+}
+
+.spending {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 16px;
+  background-color: var(--very-pale-orange);
+}
+
+ul {
+  height: 225px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 8px;
+}
+
+li div {
+  width: 32px;
+  border-radius: 5px;
+  background-color: var(--soft-red);
+  transition: opacity 0.2s ease-in-out;
+  position: relative;
+  transition: z-index .2s ease-in-out;
+  z-index: 0;
+
+  @media (max-width: 465px) {
+    width: 26px;
+  }
+}
+
+.tooltip-text {
+  opacity: 0;
+  background-color: var(--dark-brown);
+  color: white;
+  padding: 6px;
+  border-radius: 5px;
+  position: absolute;
+  top: -42px;
+  left: -50%;
+  /* transform: translateX(50%); */
+  transition: opacity 0.2s ease-in-out;
+}
+
+li div:hover {
+  z-index: 1;
+}
+
+li div:hover .tooltip-text {
+  opacity: 1;
+}
+
+li:hover div {
+  opacity: 0.85;
+}
+
+li > span {
+  color: var(--medium-brown);
+  text-align: center;
+  font-weight: 500;
+  font-size: smaller;
+}
+
+hr {
+  width: 100%;
+  border: solid 1px var(--cream);
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.total > div:first-child span {
+  color: var(--medium-brown);
+  font-weight: 500;
+}
+
+.total > div:first-child h1 {
+  color: var(--dark-brown);
+  font-size: 32px;
+}
+
+.total > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total > div:last-child span:first-child {
+  text-align: end;
+  font-weight: 700;
+  color: var(--dark-brown);
+}
+
+.total > div:last-child span:last-child {
+  color: var(--medium-brown);
+  font-weight: 500;
+}
